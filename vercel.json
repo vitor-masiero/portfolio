@@ -1,17 +1,15 @@
 {
     "rewrites": [
         {
-            "rewrites": [
-                {
-                    "source": "/api/(.*)",
-                    "destination": "/api"
-                }
-            ],
-            "outputDirectory": "dist/spa",
-            "framework": "vite",
-            "functions": {
-                "api/index.ts": {
-                    "includeFiles": "dist/server/**"
-                }
-            }
+            "source": "/api/(.*)",
+            "destination": "/api"
         }
+    ],
+    "outputDirectory": "dist/spa",
+    "framework": "vite",
+    "functions": {
+        "api/index.ts": {
+            "includeFiles": "dist/server/**"
+        }
+    }
+}
