@@ -12,7 +12,7 @@ export default defineConfig({
       name: "server",
       formats: ["es"],
     },
-    outDir: "dist/server",
+    outDir: "server-dist",
     target: "node22",
     ssr: true,
     rollupOptions: {

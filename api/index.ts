@@ -1,5 +1,5 @@
 // @ts-ignore
-import { createServer } from "../dist/server/app.mjs";
+import { createServer } from "../server-dist/app.mjs";
 import serverless from "serverless-http";
 
 const app = createServer();
