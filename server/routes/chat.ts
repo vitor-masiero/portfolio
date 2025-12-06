@@ -1,10 +1,6 @@
 import { Request, Response } from "express";
 import OpenAI from "openai";
 
-const openai = new OpenAI({
-    apiKey: process.env.OPENAI_API_KEY,
-});
-
 export async function handleChat(req: Request, res: Response) {
     try {
         const { message } = req.body;
@@ -12,6 +8,10 @@ export async function handleChat(req: Request, res: Response) {
         if (!message) {
             return res.status(400).json({ error: "Message is required" });
         }
+
+        const openai = new OpenAI({
+            apiKey: process.env.OPENAI_API_KEY,
+        });
 
         const completion = await openai.chat.completions.create({
             messages: [

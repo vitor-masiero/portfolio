@@ -15,23 +15,13 @@ const feedbacks = [
         id: 1,
         name: "Matheus Carvalho",
         role: "CEO, CarvalhoTec",
-        image:
-            "https://api.builder.io/api/v1/image/assets/TEMP/410117385f477cf17ebc78fb2a5c1e3015bd8d55?width=152",
-        text: "Trabalhar com este designer foi uma experiência transformadora. Ele não apenas entendeu nossa visão, mas a elevou a um nível que superou todas as expectativas.",
+        text: "Construir esse projeto de Machine Learning ao seu lado foi uma experiência transformadora. Você não apenas compreendeu a visão estratégica, mas elevou a solução a um nível que superou todas as expectativas.",
     },
     {
         id: 2,
         name: "Renan Machado de Oliveira",
         role: "Professor, SESI/SENAI",
-        image: "https://github.com/shadcn.png", // Placeholder
-        text: "A capacidade de entrega e a qualidade do código são impressionantes. A integração com IA trouxe uma eficiência que não imaginávamos ser possível.",
-    },
-    {
-        id: 3,
-        name: "Pedro Santos",
-        role: "Product Manager, Future Apps",
-        image: "https://github.com/shadcn.png", // Placeholder
-        text: "Profissionalismo e criatividade em cada detalhe. O resultado final ficou muito além do que esperávamos para o nosso MVP.",
+        text: "O projeto desenvolvido pelo José ajudou meus alunos a enxergarem com clareza seus caminhos profissionais. Em todo o processo, ele demonstrou profissionalismo, responsabilidade e uma dedicação exemplar.",
     },
 ];
 
@@ -68,16 +58,6 @@ export function FeedbackCarousel() {
                     {feedbacks.map((feedback) => (
                         <CarouselItem key={feedback.id}>
                             <div className="space-y-8 py-4">
-                                <div className="flex justify-center">
-                                    <div className="w-20 h-20 rounded-full border-2 border-[#0066FF] p-1">
-                                        <img
-                                            src={feedback.image}
-                                            alt={feedback.name}
-                                            className="w-full h-full rounded-full object-cover"
-                                        />
-                                    </div>
-                                </div>
-
                                 <blockquote className="text-center">
                                     <p className="text-white/90 text-2xl leading-[39px] max-w-[768px] mx-auto">
                                         "{feedback.text}"

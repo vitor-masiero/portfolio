@@ -31,7 +31,14 @@ const techStackSlugs = [
   "django",
 ];
 
+import { useToast } from "@/hooks/use-toast";
+
+const techStackImages = techStackSlugs.map(
+  (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`,
+);
+
 export default function Index() {
+  const { toast } = useToast();
   const [formData, setFormData] = useState({
     nome: "",
     email: "",
@@ -39,9 +46,44 @@ export default function Index() {
     mensagem: "",
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+
+    try {
+      const response = await fetch("/api/send-contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Mensagem enviada!",
+          description: "Entrarei em contato em breve.",
+        });
+        setFormData({
+          nome: "",
+          email: "",
+          assunto: "",
+          mensagem: "",
+        });
+      } else {
+        const errorData = await response.json();
+        toast({
+          title: "Erro ao enviar",
+          description: errorData.error || "Ocorreu um erro ao enviar sua mensagem.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Erro ao enviar",
+        description: "Falha na comunicação com o servidor.",
+        variant: "destructive",
+      });
+    }
   };
 
   const scrollToProjects = () => {
@@ -150,9 +192,7 @@ export default function Index() {
 
               <div className="flex justify-center">
                 <IconCloud
-                  images={techStackSlugs.map(
-                    (slug) => `https://cdn.simpleicons.org/${slug}/${slug}`,
-                  )}
+                  images={techStackImages}
                 />
               </div>
             </div>

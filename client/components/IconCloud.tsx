@@ -1,3 +1,4 @@
+import React from "react";
 import { Cloud, ICloud } from "react-icon-cloud";
 
 export const cloudProps: Omit<ICloud, "children"> = {
@@ -39,7 +40,7 @@ export type IconCloudProps = {
   images?: string[];
 };
 
-export function IconCloud({ images }: IconCloudProps) {
+export const IconCloud = React.memo(function IconCloud({ images }: IconCloudProps) {
   return (
     // @ts-ignore
     <Cloud {...cloudProps}>
@@ -58,4 +59,4 @@ export function IconCloud({ images }: IconCloudProps) {
         })}
     </Cloud>
   );
-}
+});
