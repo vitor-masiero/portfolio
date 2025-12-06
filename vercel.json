@@ -1,0 +1,10 @@
+{
+    "rewrites": [
+        {
+            "source": "/api/(.*)",
+            "destination": "/api"
+        }
+    ],
+    "outputDirectory": "dist/spa",
+    "framework": "vite"
+}
