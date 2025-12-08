@@ -1,15 +1,20 @@
 {
-    "framework": "vite",
-    "outputDirectory": "dist/spa",
-    "rewrites": [
-        {
-            "source": "/api/(.*)",
-            "destination": "/api"
-        }
-    ],
-    "functions": {
-        "api/index.ts": {
-            "includeFiles": "server-dist/**"
-        }
+  "framework": "vite",
+  "outputDirectory": "dist/spa",
+  "rewrites": [
+    {
+      "source": "/api/(.*)",
+      "destination": "/api"
     }
+  ],
+  "functions": {
+    "api/index.ts": {
+      "includeFiles": "server-dist/**",
+      "memory": 1024,
+      "maxDuration": 10
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  }
 }

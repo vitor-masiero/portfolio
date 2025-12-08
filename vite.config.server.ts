@@ -6,7 +6,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: {
-        app: path.resolve(__dirname, "server/index.ts"),
+        serverless: path.resolve(__dirname, "server/serverless.ts"),
         "node-build": path.resolve(__dirname, "server/node-build.ts"),
       },
       name: "server",
@@ -31,16 +31,24 @@ export default defineConfig({
         "buffer",
         "querystring",
         "child_process",
+        "net",
+        "tls",
+        "zlib",
+        "dns",
         // External dependencies that should not be bundled
         "express",
         "cors",
+        "dotenv",
+        "nodemailer",
+        "openai",
+        "serverless-http",
       ],
       output: {
         format: "es",
         entryFileNames: "[name].mjs",
       },
     },
-    minify: false, // Keep readable for debugging
+    minify: false,
     sourcemap: true,
   },
   resolve: {
