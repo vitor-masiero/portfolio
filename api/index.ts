@@ -1,9 +1,9 @@
 import serverless from "serverless-http";
 import express from "express";
 import cors from "cors";
-import { handleDemo } from "../server/routes/demo";
-import { handleChat } from "../server/routes/chat";
-import { handleContact } from "../server/routes/contact";
+import { handleDemo } from "../server/routes/demo.js";
+import { handleChat } from "../server/routes/chat.js";
+import { handleContact } from "../server/routes/contact.js";
 
 const app = express();
 
