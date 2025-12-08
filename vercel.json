@@ -1,5 +1,5 @@
 {
-  "framework": "vite",
+  "buildCommand": "npm run build",
   "outputDirectory": "dist/spa",
   "rewrites": [
     {
@@ -9,12 +9,7 @@
   ],
   "functions": {
     "api/index.ts": {
-      "includeFiles": "server-dist/**",
-      "memory": 1024,
-      "maxDuration": 10
+      "includeFiles": "{server-dist/**,server/**}"
     }
-  },
-  "env": {
-    "NODE_ENV": "production"
   }
 }
