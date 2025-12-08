@@ -6,25 +6,21 @@ import nodemailer from "nodemailer";
 
 const app = express();
 
-// Middleware
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Ping endpoint
 app.get("/api/ping", (_req, res) => {
   const ping = process.env.PING_MESSAGE ?? "ping";
   res.json({ message: ping });
 });
 
-// Demo endpoint
 app.get("/api/demo", (req, res) => {
   res.status(200).json({
     message: "Hello from Express server",
   });
 });
 
-// Chat endpoint
 app.post("/api/chat", async (req: Request, res: Response) => {
   try {
     const { message } = req.body;
@@ -78,7 +74,6 @@ app.post("/api/chat", async (req: Request, res: Response) => {
   }
 });
 
-// Contact endpoint
 app.post("/api/send-contact", async (req: Request, res: Response) => {
   try {
     const { nome, email, assunto, mensagem } = req.body;
@@ -134,4 +129,6 @@ app.post("/api/send-contact", async (req: Request, res: Response) => {
   }
 });
 
-export default serverless(app);
+export default serverless(app, {
+  basePath: "/api"
+});
