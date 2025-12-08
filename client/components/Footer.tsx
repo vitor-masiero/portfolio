@@ -45,8 +45,8 @@ export default function Footer() {
               Desenvolvedor Full Stack e Engenheiro de IA focado em criar soluções digitais inovadoras e escaláveis.
             </p>
             <div className="flex items-center justify-center md:justify-start gap-4">
-              <a
-                href="https://linkedin.com"
+              <a 
+                href="https://www.linkedin.com/in/jos%C3%A9-vitor-masiero-97a778313/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#0066FF] text-white transition-all"
@@ -55,7 +55,7 @@ export default function Footer() {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a
-                href="https://github.com/josevitor"
+                href="https://github.com/vitor-masiero"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center hover:bg-[#0066FF] text-white transition-all"
